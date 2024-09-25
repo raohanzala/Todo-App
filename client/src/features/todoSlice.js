@@ -73,14 +73,28 @@ export const todoSlice = createSlice({
 
     },
     extraReducers : (builder)=> {
+        //handle get request
         builder.addCase(fetchTodos.pending,(state,action)=> {
             state.isLoading = true
-        });
-        builder.addCase(fetchTodos.fulfilled,(state,action)=> {
+        })
+        .addCase(fetchTodos.fulfilled,(state,action)=> {
             state.isLoading = false
             state.todos = action.payload
-        });
-        builder.addCase(fetchTodos.rejected,(state,action)=> {
+        })
+        .addCase(fetchTodos.rejected,(state,action)=> {
+            console.log('Error', action.payload) 
+            state.isError = true
+        })
+
+        //handle post request
+        builder.addCase(fetchTodos.pending,(state,action)=> {
+            state.isLoading = true
+        })
+        .addCase(fetchTodos.fulfilled,(state,action)=> {
+            state.isLoading = false
+            state.todos = action.payload
+        })
+        .addCase(fetchTodos.rejected,(state,action)=> {
             console.log('Error', action.payload) 
             state.isError = true
         })

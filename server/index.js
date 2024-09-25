@@ -1,13 +1,14 @@
-const express = require('express')
-const mongoose  = require('mongoose')
-const cors = require('cors')
-const TodoModel = require('./models/todos')
+import express from 'express';
+import cors from 'cors';
+import {TodoModel} from './models/todos.js';
+
+import connectDB from './config/mongodb.js'
 
 const app = express()
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect('mongodb+srv://raohanzala70:uce6dmplSO7YbyjN@cluster0.eiwje.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+connectDB()
 
 app.get('/get', (req, res)=> {
    TodoModel.find().then(todos=> res.json(todos))
