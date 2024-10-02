@@ -10,6 +10,8 @@ export default {
         'custom-gradient': 'linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)',
       }
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar')
+  ],
 }
 }

@@ -1,7 +1,7 @@
-import mongoose from 'mongoose'
+    import mongoose from 'mongoose'
 
-const TodoSchema = new mongoose.Schema({
-    todo : String
-})
+    const TodoSchema = new mongoose.Schema({
+        todo : String
+    })
 
-export  const TodoModel = mongoose.model('todos', TodoSchema)
+    export  const TodoModel = mongoose.model('todos', TodoSchema)
